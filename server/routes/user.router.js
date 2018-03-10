@@ -118,42 +118,42 @@ router.put('/confirm/:id', function (req, res) {
           console.log("Error inserting data: ", err);
           res.sendStatus(500);
         } else {
-          var transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-              type: 'OAuth2',
-              clientId: CLIENT_ID,
-              clientSecret: CLIENT_SECRET,
-            }
-          });
+          // var transporter = nodemailer.createTransport({
+          //   host: 'smtp.gmail.com',
+          //   port: 465,
+          //   secure: true,
+          //   auth: {
+          //     type: 'OAuth2',
+          //     clientId: CLIENT_ID,
+          //     clientSecret: CLIENT_SECRET,
+          //   }
+          // });
           console.log('username:', result.rows[0].username);
 
-          let emailConfirmAddress = result.rows[0].username;
+          // let emailConfirmAddress = result.rows[0].username;
 
           // setup email data 
-          var mailOptions = {
-            from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
-            to: emailConfirmAddress, // list of receivers
-            subject: 'Andrew Residence Account Confirmation ✔', // Subject line
-            text: 'You\'re Confirmed!, // plain text body',
-            html: '<p>Hello from Andrew Residence!!!  Thank you very much for signing up for the scheduling application. You are OFFICIAL!  We have created your profile and you may now begin picking up shifts. <button style="background-color: #4CAF50; /* Green */"+" See Shifts!</button>  See you soon!</p>', // html body
-            auth: {
-              user: GMAIL_USER,
-              refreshToken: REFRESH_TOKEN,
-              accessToken: ACCESS_TOKEN,
-            }
-          };
+          // var mailOptions = {
+          //   from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
+          //   to: emailConfirmAddress, // list of receivers
+          //   subject: 'Andrew Residence Account Confirmation ✔', // Subject line
+          //   text: 'You\'re Confirmed!, // plain text body',
+          //   html: '<p>Hello from Andrew Residence!!!  Thank you very much for signing up for the scheduling application. You are OFFICIAL!  We have created your profile and you may now begin picking up shifts. <button style="background-color: #4CAF50; /* Green */"+" See Shifts!</button>  See you soon!</p>', // html body
+          //   auth: {
+          //     user: GMAIL_USER,
+          //     refreshToken: REFRESH_TOKEN,
+          //     accessToken: ACCESS_TOKEN,
+          //   }
+          // };
           // send mail with defined transport object
-          transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-              console.log(error);
-              res.send(error);
-            }
-            console.log('Message sent: %s', info.messageId);
-            res.sendStatus(200);
-          });
+          // transporter.sendMail(mailOptions, function (error, info) {
+          //   if (error) {
+          //     console.log(error);
+          //     res.send(error);
+          //   }
+          //   console.log('Message sent: %s', info.messageId);
+          //   res.sendStatus(200);
+          // });
           res.send(result.rows);
         }
       });//end of dbQuery
