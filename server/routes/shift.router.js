@@ -327,62 +327,62 @@ router.post('/confirm', function (req, res) {
                         let user_id = result.rows[0].user_id;
                         let shift_id = result.rows[0].shift_id;
                         confirmedShiftEmail(user_id, shift_id).then(function (emailDetails) {
-                            var mailOptions = {
-                                from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
-                                to: emailDetails.username, // list of receivers
-                                subject: 'Shift Confirmation from Andrew Residence', // Subject line
-                                html: ' <body style ="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">' +
-                                    '<h1>Good Day!</h1><h3>Confirmed Shift:</h3><ul>' + emailDetails.shift + '</ul>' +
-                                    '<ul>' + emailDetails.date + '</ul>' +
-                                    '<p>Please contact your supervisors for additional information.</p>' +
-                                    '<p> We appreciate yor support!</p></body>',
-                                auth: {
-                                    user: GMAIL_USER,
-                                    refreshToken: REFRESH_TOKEN,
-                                    accessToken: ACCESS_TOKEN,
-                                }
-                            };
+                            // var mailOptions = {
+                            //     from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
+                            //     to: emailDetails.username, // list of receivers
+                            //     subject: 'Shift Confirmation from Andrew Residence', // Subject line
+                            //     html: ' <body style ="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">' +
+                            //         '<h1>Good Day!</h1><h3>Confirmed Shift:</h3><ul>' + emailDetails.shift + '</ul>' +
+                            //         '<ul>' + emailDetails.date + '</ul>' +
+                            //         '<p>Please contact your supervisors for additional information.</p>' +
+                            //         '<p> We appreciate yor support!</p></body>',
+                            //     auth: {
+                            //         user: GMAIL_USER,
+                            //         refreshToken: REFRESH_TOKEN,
+                            //         accessToken: ACCESS_TOKEN,
+                            //     }
+                            // };
                             // send mail with defined transport object
-                            transporter.sendMail(mailOptions, function (error, info) {
-                                if (error) {
-                                    console.log(error);
-                                    res.send(error);
-                                }
-                                console.log('Confirmation Message sent: %s', info.messageId);
-                                res.sendStatus(200);
-                            });
-                            return notSelectedForShiftEmail(shift_id, user_id, emailDetails);
+                            // transporter.sendMail(mailOptions, function (error, info) {
+                            //     if (error) {
+                            //         console.log(error);
+                            //         res.send(error);
+                            //     }
+                            //     console.log('Confirmation Message sent: %s', info.messageId);
+                            //     res.sendStatus(200);
+                            // });
+                            // return notSelectedForShiftEmail(shift_id, user_id, emailDetails);
 
                         }).then(function(email){
-                              if (email.emailAddresses.join('') !== null && email.emailAddresses.join('') !== '') {
-                                  // do something
-                              
-                            var mailOptions = {
-                                            from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
-                                            to: email.emailAddresses.join(''), // list of receivers
-                                            subject: 'Shift Filled from Andrew Residence', // Subject line
-                                            html: ' <body style ="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">' +
-                                                '<h1>Good Day!</h1><h3>Shift Filled:</h3><ul>' + email.shift + '</ul>' +
-                                                '<ul>' + email.date + '</ul>' +
-                                                '<p>Please contact your supervisors for additional information.</p>' +
-                                                '<button style="background-color: #4CAF50;background-color:rgb(255, 193, 7);;color: white;padding: 15px 32px;text-align: center;font-size: 16px;">Let\'s Pick-up Some Shifts!</button>' +
-                                                '<p> We appreciate yor support!</p></body>',
-                                            auth: {
-                                                user: GMAIL_USER,
-                                                refreshToken: REFRESH_TOKEN,
-                                                accessToken: ACCESS_TOKEN,
-                                            }
-                                        };
-                                        // send mail with defined transport object
-                                        transporter.sendMail(mailOptions, function (error, info) {
-                                            if (error) {
-                                                console.log(error);
-                                                res.send(error);
-                                            }
-                                            console.log(' Shift filled Message sent: %s', info.messageId);
-                                            res.sendStatus(200);
-                                        });
-                                        }
+                        //         if (email.emailAddresses.join('') !== null && email.emailAddresses.join('') !== '') {
+                        //             // do something
+                            
+                        //     var mailOptions = {
+                        //                     from: '"Andrew Residence" <andrewresidence2017@gmail.com>', // sender address
+                        //                     to: email.emailAddresses.join(''), // list of receivers
+                        //                     subject: 'Shift Filled from Andrew Residence', // Subject line
+                        //                     html: ' <body style ="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">' +
+                        //                         '<h1>Good Day!</h1><h3>Shift Filled:</h3><ul>' + email.shift + '</ul>' +
+                        //                         '<ul>' + email.date + '</ul>' +
+                        //                         '<p>Please contact your supervisors for additional information.</p>' +
+                        //                         '<button style="background-color: #4CAF50;background-color:rgb(255, 193, 7);;color: white;padding: 15px 32px;text-align: center;font-size: 16px;">Let\'s Pick-up Some Shifts!</button>' +
+                        //                         '<p> We appreciate yor support!</p></body>',
+                        //                     auth: {
+                        //                         user: GMAIL_USER,
+                        //                         refreshToken: REFRESH_TOKEN,
+                        //                         accessToken: ACCESS_TOKEN,
+                        //                     }
+                        //                 };
+                        //                 // send mail with defined transport object
+                        //                 transporter.sendMail(mailOptions, function (error, info) {
+                        //                     if (error) {
+                        //                         console.log(error);
+                        //                         res.send(error);
+                        //                     }
+                        //                     console.log(' Shift filled Message sent: %s', info.messageId);
+                        //                     res.sendStatus(200);
+                        //                 });
+                        //                 }
 
                         });
                         if (errorMakingQuery) {
