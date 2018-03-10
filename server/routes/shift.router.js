@@ -12,23 +12,23 @@ var _ = require('lodash');
 // var AUTH_TOKEN = process.env.PLIVO_AUTH_TOKEN;
 // var plivoNumber = '16128519117'; //rented plivo number
 /* credentials for google oauth w/nodemailer*/
-var GMAIL_USER = process.env.GMAIL_USER;
-var REFRESH_TOKEN = process.env.REFRESH_TOKEN;
-var ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-var CLIENT_ID = process.env.CLIENT_ID;
-var CLIENT_SECRET = process.env.CLIENT_SECRET;
-//post route for new shifts
+// var GMAIL_USER = process.env.GMAIL_USER;
+// var REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+// var ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+// var CLIENT_ID = process.env.CLIENT_ID;
+// var CLIENT_SECRET = process.env.CLIENT_SECRET;
+// //post route for new shifts
 
-var transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-    }
-});
+// var transporter = nodemailer.createTransport({
+//     host: 'smtp.gmail.com',
+//     port: 465,
+//     secure: true,
+//     auth: {
+//         type: 'OAuth2',
+//         clientId: CLIENT_ID,
+//         clientSecret: CLIENT_SECRET,
+//     }
+// });
 
 
 router.post('/', function (req, res) {
