@@ -1,20 +1,21 @@
-#Andrew Residence Shift Calendar
+# Andrew Residence On-call Staffing Solution
 
-Andrew Residence requires a calendar/scheduling application to assist in sceduling on-call staff.  
+Andrew Residence requires a scheduling application to assist in sceduling on-call staff.  
 
 ## Built With
 
-SQL
-Express
-AngularJS
-Node.js
-Nodemailer
-MomentJS
-Plivo API
+- PostgreSQL
+- Express
+- AngularJS
+- Angular Material
+- Node.js
+- Nodemailer
+- MomentJS
+- Plivo API
 
 ## Getting Started
 
-Fork repo from (https://github.com/Andrew-Residence/group-project)
+Fork this repo.
 
 Download or clone this repository
 Get a [Plivo API Key and Phone Number](https://developers.plivo.com/);
