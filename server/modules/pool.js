@@ -11,6 +11,7 @@ var config = {};
 if (process.env.DATABASE_URL) {
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
+  console.log('in the if')
   var params = url.parse(process.env.DATABASE_URL);
   var auth = params.auth.split(':');
 
@@ -26,6 +27,7 @@ if (process.env.DATABASE_URL) {
   };
 
 } else {
+  console.log('in the else')
   config = {
     user: process.env.PG_USER || 'postgres', //env var: PGUSER
     password: process.env.DATABASE_SECRET || 'postgres', //env var: PGPASSWORD

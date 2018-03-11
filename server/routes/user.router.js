@@ -154,7 +154,7 @@ router.put('/confirm/:id', function (req, res) {
           //   console.log('Message sent: %s', info.messageId);
           //   res.sendStatus(200);
           // });
-          res.send(result.rows);
+          res.sendStatus(200);
         }
       });//end of dbQuery
     });//end of pool connect
