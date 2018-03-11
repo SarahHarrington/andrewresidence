@@ -832,3 +832,11 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   margin-left: 10px;
 }
 
+.loginPageUns {
+  border: 1px solid #8774AA;
+  padding: 5px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 10px 10px 8px #8774AA;
+}
+

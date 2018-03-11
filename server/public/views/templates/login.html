@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="lead">Login</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-        
+        <div layout="row">
         <form layout="column" layout-align="left" class="logRegForm" ng-submit="lc.login()">
             <div>
                 <md-input-container>
@@ -20,14 +20,24 @@
                     Login
                 </md-button>
             </div>
-            <a href="#forgot">Forgot Password</a>
+            <!-- <a href="#forgot">Forgot Password</a>
 
             <div class="registrationButton">
                 <span>New Here?</span>
                 <md-button class="md-raised md-primary" href="#register">
                     Register
                 </md-button>
-            </div>
+            </div> -->
         </form>
-
+        
+        <div class="loginPageUns" layout="column">
+            <h3>Andrew Residence On-call Staffing Solution Example Site</h3>
+            <hr>
+            Log in to expereince the staffing system as an administrator, supervisor or on-call staff <br>member using the usernames and password below.<br>
+            <br>
+            <span><strong>Usernames: </strong>Administrator, Supervisor, Staff</span>
+            <br>
+            <span><strong>Password: </strong>example</span>
+        </div>
+    </div>
 </div>
